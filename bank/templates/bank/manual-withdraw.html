@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+{% load static %}
+{%  block content %}
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>PNC Bank</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<!-- App favicon -->
+	<link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+	<!-- DataTables -->
+	<!-- DataTables -->
+	<link href="{% static 'css/datatables.min.css' %}" rel="stylesheet" type="text/css" />
+
+	<link href="{% static 'css/dropify.min.css' %}" rel="stylesheet">
+	<link href="{% static 'css/sweetalert2.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/select2.min.css' %}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'css/daterangepicker.css' %}" rel="stylesheet" />
+	<link href="{% static 'css/jquery.toast.min.css' %}" rel="stylesheet" />
+	<!-- App Css -->
+	<link rel="stylesheet" href="{% static 'icofont/icofont.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+	<!-- Modernizr -->
+	<script src="{% static 'js/modernizr-2.8.3.min.js' %}"></script>
+
+	
+	<script type="text/javascript">
+var _url = "https://livo-bank.trickycode.xyz";
+var _media_url = "https://livo-bank.trickycode.xyz/media/get_table_data";
+var _date_format = "d/m/Y";
+var _backend_direction = "ltr";
+
+var $lang_alert_title = "Are you sure?";
+var $lang_alert_message = "Once deleted, you will not be able to recover this information !";
+var $lang_confirm_button_text = "Yes, delete it!";
+var $lang_cancel_button_text = "Cancel";
+var $lang_no_data_found = "No Data Found";
+var $lang_showing = "Showing";
+var $lang_to = "to";
+var $lang_of = "of";
+var $lang_entries = "Entries";
+var $lang_showing_0_to_0_of_0_entries = "Showing 0 To 0 Of 0 Entries";
+var $lang_show = "Show";
+var $lang_loading = "Loading...";
+var $lang_processing = "Processing...";
+var $lang_search = "Search";
+var $lang_no_matching_records_found = "No matching records found";
+var $lang_first = "First";
+var $lang_last = "Last";
+var $lang_next = "Next";
+var $lang_previous = "Previous";
+var $lang_copy = "Copy";
+var $lang_excel = "Excel";
+var $lang_pdf = "PDF";
+var $lang_print = "Print";
+var $lang_add_new = "Add New";
+var $lang_select_one = "Select One";
+</script>
+</head>
+
+    <body class="sb-nav-fixed">
+		<!-- Main Modal -->
+		<div id="main_modal" class="modal" tabindex="-1" role="dialog">
+		    <div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+				    <div class="modal-header">
+						<h5 class="modal-title mt-0 ml-2"></h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						  <span aria-hidden="true">&times;</span>
+						</button>
+				    </div>
+
+				    <div class="alert alert-danger d-none mx-3 mt-3 mb-0"></div>
+				    <div class="alert alert-primary d-none mx-3 mt-3 mb-0"></div>
+				    <div class="modal-body overflow-hidden"></div>
+
+				</div>
+		    </div>
+		</div>
+
+		<!-- Secondary Modal -->
+		<div id="secondary_modal" class="modal" tabindex="-1" role="dialog">
+		    <div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+				    <div class="modal-header">
+						<h5 class="modal-title mt-0 ml-2"></h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						  <span aria-hidden="true">&times;</span>
+						</button>
+				    </div>
+
+				    <div class="alert alert-danger d-none mx-3 mt-3 mb-0"></div>
+				    <div class="alert alert-primary d-none mx-3 mt-3 mb-0"></div>
+				    <div class="modal-body overflow-hidden"></div>
+				</div>
+		    </div>
+		</div>
+
+		<!-- Preloader area start -->
+		<div id="preloader"></div>
+		<!-- Preloader area end -->
+
+		<!--Header Nav-->
+		<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <div class="container-fluid">
+				<a class="navbar-brand text-md-center" href="{% url 'dashboard' %}">PNC Bank</a>
+				<button class="btn btn-link btn-sm mr-auto" id="sidebarToggle" href="#">
+					<div class="lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+				</button>
+
+				<ul class="navbar-nav ml-auto ml-md-0 notification-area">
+					<li class="nav-item dropdown animate-dropdown">
+						<i class="icofont-notification dropdown-toggle" data-toggle="dropdown">
+																						<span id="notification-count">{{request.user.deposit.notification_number}}</span>
+													</i>
+						<div class="dropdown-menu dropdown-menu-right bell-notify-box notify-box">
+														<span class="notify-title">You have {{request.user.deposit.notification_number}} new notifications</span>
+														<div class="nofity-list">
+																																	<div class="d-flex notify-item">
+										<a href="" class="ajax-modal" data-title="Notification">
+											<div class="notify-text">
+												<p class="unread-notification">{{request.user.deposit.notification_message}}</p>
+												<span>19 hours ago</span>
+											</div>
+										</a>
+
+
+
+																				<a href="https://livo-bank.trickycode.xyz/profile/notification_mark_as_read/c474b950-5dcd-4a23-9dff-28082dd02c7e" class="notification_mark_as_read"><i class="icofont-checked"></i></a>
+																			</div>
+															</div>
+						</div>
+					</li>
+				</ul>
+
+				<ul class="navbar-nav ml-auto ml-md-0">
+					<li class="nav-item dropdown animate-dropdown">
+
+					</li>
+				</ul>
+
+				<ul class="navbar-nav ml-auto ml-md-0">
+					<li class="nav-item dropdown animate-dropdown">
+						<a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icofont-ui-user"></i></a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+							<a class="dropdown-item" href="{% url 'profile' %}"><i class="icofont-ui-user"></i> Profile Overview</a>
+							<a class="dropdown-item" href="{% url 'edit' %}"><i class="icofont-ui-edit"></i> Profile Settings</a>
+							<a class="dropdown-item" href="{% url 'change-password' %}"><i class="icofont-exchange"></i></i> Change Password</a>
+														<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="{% url 'logout' %}"><i class="icofont-exit"></i> Logout</a>
+						</div>
+					</li>
+				</ul>
+
+			</div>
+        </nav><!--End Header Nav-->
+
+		<div id="layoutSidenav" class="container-fluid d-flex align-items-stretch">
+			<div id="layoutSidenav_nav">
+				<span class="close-mobile-nav"><i class="icofont-close-line-squared-alt"></i></span>
+                <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
+
+					<div class="sidebar-user">
+                        <a href="javascript: void(0);">
+                            <img src="{{request.user.customer.profile_pic.url}}" alt="user-image" height="42" class="rounded-circle shadow-sm">
+                            <span class="sidebar-user-name">{{user.first_name}} {{user.last_name}}</span>
+                        </a>
+                    </div>
+
+					<div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">NAVIGATIONS</div>
+
+<a class="nav-link" href="{% url 'dashboard' %}">
+	<div class="sb-nav-link-icon"><i class="icofont-dashboard-web"></i></div>
+	Dashboard
+</a>
+
+<a class="nav-link" href="{% url 'send-money' %}">
+	<div class="sb-nav-link-icon"><i class="icofont-location-arrow"></i></div>
+	Send Money
+</a>
+
+
+
+<a class="nav-link" href="{% url 'wire-transfer' %}">
+	<div class="sb-nav-link-icon"><i class="icofont-bank-transfer"></i></div>
+	Wire Transfer
+</a>
+
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#payment_request" aria-expanded="false" aria-controls="collapseLayouts">
+	<div class="sb-nav-link-icon"><i class="icofont-credit-card"></i></div>
+	Payment Request
+	<div class="sb-sidenav-collapse-arrow"><i class="icofont-rounded-down"></i></div>
+</a>
+<div class="collapse" id="payment_request" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+	<nav class="sb-sidenav-menu-nested nav">
+		<a class="nav-link" href="{% url 'card' %}">Card</a>
+	</nav>
+</div>
+
+
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#deposit" aria-expanded="false" aria-controls="collapseLayouts">
+	<div class="sb-nav-link-icon"><i class="icofont-plus-circle"></i></div>
+	Deposit Money
+	<div class="sb-sidenav-collapse-arrow"><i class="icofont-rounded-down"></i></div>
+</a>
+<div class="collapse" id="deposit" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+	<nav class="sb-sidenav-menu-nested nav">
+		<a class="nav-link" href="{% url 'automatic-methods' %}">Automatic Deposit</a>
+		
+		<a class="nav-link" href="{% url 'manual-methods' %}">Manual Deposit</a>
+
+		<a class="nav-link" href="{% url 'redeem-gift-cards' %}">Redeem Gift Card</a>
+			</nav>
+</div>
+
+<a class="nav-link" href="{% url 'manual-withdraw' %}">
+	<div class="sb-nav-link-icon"><i class="icofont-minus-circle"></i></div>
+	Withdraw Money
+</a>
+
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#loans" aria-expanded="false" aria-controls="collapseLayouts">
+	<div class="sb-nav-link-icon"><i class="icofont-dollar-minus"></i></div>
+	Loans
+	<div class="sb-sidenav-collapse-arrow"><i class="icofont-rounded-down"></i></div>
+</a>
+<div class="collapse" id="loans" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+	<nav class="sb-sidenav-menu-nested nav">
+		<a class="nav-link" href="{% url 'apply-loan' %}">Apply New Loan</a>
+		<a class="nav-link" href="{% url 'my-loans' %}">My Loans</a>
+		<a class="nav-link" href="{% url 'calculator' %}">Loan Calculator</a>
+	</nav>
+</div>
+
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#fdr" aria-expanded="false" aria-controls="collapseLayouts">
+	<div class="sb-nav-link-icon"><i class="icofont-money"></i></div>
+	Fixed Deposit
+	<div class="sb-sidenav-collapse-arrow"><i class="icofont-rounded-down"></i></div>
+</a>
+<div class="collapse" id="fdr" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+	<nav class="sb-sidenav-menu-nested nav">
+		<a class="nav-link" href="{% url 'apply-fixed' %}">Apply New FRD</a>
+		<a class="nav-link" href="{% url 'history' %}">FDR History</a>
+	</nav>
+</div>
+
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#dps" aria-expanded="false" aria-controls="collapseLayouts">
+	<div class="sb-nav-link-icon"><i class="icofont-money-bag"></i></div>
+	DPS Scheme
+	<div class="sb-sidenav-collapse-arrow"><i class="icofont-rounded-down"></i></div>
+</a>
+<div class="collapse" id="dps" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+	<nav class="sb-sidenav-menu-nested nav">
+		<a class="nav-link" href="{% url 'plans' %}">DPS Plans</a>
+		<a class="nav-link" href="{% url 'dps-schemes' %}">My DPS</a>
+	</nav>
+</div>
+
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tickets" aria-expanded="false" aria-controls="collapseLayouts">
+	<div class="sb-nav-link-icon"><i class="icofont-live-support"></i></div>
+	Support Tickets
+	<div class="sb-sidenav-collapse-arrow"><i class="icofont-rounded-down"></i></div>
+</a>
+<div class="collapse" id="tickets" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+	<nav class="sb-sidenav-menu-nested nav">
+		<a class="nav-link" href="{% url 'create-ticket' %}">Create New Ticket</a>
+		<a class="nav-link" href="{% url 'myticket' %}">Pending Tickets</a>
+		<a class="nav-link" href="{% url 'myticket' %}">Active Tickets</a>
+		<a class="nav-link" href="{% url 'closedticket' %}">Closed Tickets</a>
+	</nav>
+</div>
+
+<a class="nav-link" href="{% url 'transactions-report' %}">
+	<div class="sb-nav-link-icon"><i class="icofont-chart-histogram"></i></div>
+	Transactions Report
+</a>
+                        </div>
+                    </div>
+                </nav>
+            </div><!--End layoutSidenav_nav-->
+
+			<div id="layoutSidenav_content">
+
+				<main>
+					<div class="row">
+						<div class="col-lg-8 offset-lg-2">
+							<div class="alert alert-success alert-dismissible" id="main_alert" role="alert">
+								<button type="button" id="close_alert" class="close">
+									<span aria-hidden="true"><i class="icofont-close-line-squared-alt"></i></span>
+								</button>
+								<span class="msg"></span>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-8 offset-lg-2">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="header-title text-center">Send Money</h4>
+								</div>
+								<div class="card-body">
+									<form method="POST" class="validate" autocomplete="off" action=" " enctype="multipart/form-data">
+										{% csrf_token %}
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="control-label">Bank Name</label>
+													<input type="text" class="form-control" name="bankname" value="" required>
+												</div>
+											</div>
+
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="control-label">Account Number</label>
+													<input type="text" class="form-control" name="accountnumber" value="" required>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="control-label">Account Holder Name</label>
+													<input type="text" class="form-control" name="accountname" value="" required>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="control-label">Currency</label>
+													<input type="text" class="form-control float-field" name="currency" value="USD"  readonly>
+												</div>
+											</div>
+					
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="control-label">Amount</label>
+													<input type="text" class="form-control float-field" name="amount" value="" required>
+												</div>
+											</div>
+					
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="control-label">Note</label>
+													<textarea class="form-control" name="note"></textarea>
+												</div>
+											</div>
+					
+											<div class="col-md-12">
+												<h6 class="text-info text-center"><b>-10% transaction charge will be applied</b></h6>
+											</div>
+											<input type="text" class="form-control float-field" name="charge" value="-10" hidden required>
+											<input type="text" class="form-control float-field" name="status" value="Pending..." hidden required>
+											<input type="text" class="form-control" name="name" value="{{user.username}}" hidden required>
+											<div class="col-md-12 mt-4">
+												<div class="form-group">
+													<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="icofont-check-circled"></i> Send Money</button>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</main>
+
+			</div>	<!--End layoutSidenav_content-->
+		</div> <!--End layoutSidenav-->
+
+		<!-- Core Js  -->
+		<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+		<script src="{% static 'js/print.js' %}"></script>
+		<script src="{% static 'js/pace.min.js' %}"></script>
+		<script src="{% static 'js/clipboard.min.js' %}"></script>
+        <script src="{% static 'js/moment.js' %}"></script>
+
+		<!-- Datatable js -->
+        <script src="{% static 'js/datatables.min.js' %}"></script>
+
+		<script src="{% static 'js/dropify.min.js' %}"></script>
+		<script src="{% static 'js/sweetalert2.min.js' %}"></script>
+		<script src="{% static 'js/select2.min.js' %}"></script>
+		<script src="{% static 'js/daterangepicker.js' %}"></script>
+		<script src="{% static 'js/tinymce.min.js' %}"></script>
+		<script src="{% static 'js/parsley.min.js' %}"></script>
+		<script src="{% static 'js/jquery.toast.min.js' %}"></script>
+
+        <!-- App js -->
+        <script src="{% static 'js/scripts.js' %}"></script>
+
+
+		<script type="text/javascript">
+		(function($) {
+
+    		"use strict";
+
+			//Show Success Message
+			
+			//Show Single Error Message
+			
+			
+			
+        })(jQuery);
+
+	 </script>
+	 <script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=XIl2S5W1vL11"></script>
+<script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+	 <!-- Custom JS -->
+    </body>
+	{%  endblock content %}
+</html>

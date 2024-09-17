@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+{% load static %}
+{%  block content %}
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>PNC Bank</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<!-- App favicon -->
+	<link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+	<!-- DataTables -->
+	<link href="{% static 'css/datatables.min.css' %}" rel="stylesheet" type="text/css" />
+
+	<link href="{% static 'css/dropify.min.css' %}" rel="stylesheet">
+	<link href="{% static 'css/sweetalert2.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/select2.min.css' %}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'css/daterangepicker.css' %}" rel="stylesheet" />
+	<link href="{% static 'css/jquery.toast.min.css' %}" rel="stylesheet" />
+	<!-- App Css -->
+	<link rel="stylesheet" href="{% static 'icofont/icofont.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+	<link rel="stylesheet" href="{% static 'css/card.css' %}">
+
+
+	<!-- Modernizr -->
+	<script src="{% static 'js/modernizr-2.8.3.min.js' %}"></script>
+
+
+	
+	<script type="text/javascript">
+var _url = "https://livo-bank.trickycode.xyz";
+var _media_url = "https://livo-bank.trickycode.xyz/media/get_table_data";
+var _date_format = "d/m/Y";
+var _backend_direction = "ltr";
+
+var $lang_alert_title = "Are you sure?";
+var $lang_alert_message = "Once deleted, you will not be able to recover this information !";
+var $lang_confirm_button_text = "Yes, delete it!";
+var $lang_cancel_button_text = "Cancel";
+var $lang_no_data_found = "No Data Found";
+var $lang_showing = "Showing";
+var $lang_to = "to";
+var $lang_of = "of";
+var $lang_entries = "Entries";
+var $lang_showing_0_to_0_of_0_entries = "Showing 0 To 0 Of 0 Entries";
+var $lang_show = "Show";
+var $lang_loading = "Loading...";
+var $lang_processing = "Processing...";
+var $lang_search = "Search";
+var $lang_no_matching_records_found = "No matching records found";
+var $lang_first = "First";
+var $lang_last = "Last";
+var $lang_next = "Next";
+var $lang_previous = "Previous";
+var $lang_copy = "Copy";
+var $lang_excel = "Excel";
+var $lang_pdf = "PDF";
+var $lang_print = "Print";
+var $lang_add_new = "Add New";
+var $lang_select_one = "Select One";
+</script>
+</head>
+
+    <body class="sb-nav-fixed">
+		<!-- Main Modal -->
+		<div id="main_modal" class="modal" tabindex="-1" role="dialog">
+		    <div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+				    <div class="modal-header">
+						<h5 class="modal-title mt-0 ml-2"></h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						  <span aria-hidden="true">&times;</span>
+						</button>
+				    </div>
+
+				    <div class="alert alert-danger d-none mx-3 mt-3 mb-0"></div>
+				    <div class="alert alert-primary d-none mx-3 mt-3 mb-0"></div>
+				    <div class="modal-body overflow-hidden"></div>
+
+				</div>
+		    </div>
+		</div>
+
+		<!-- Secondary Modal -->
+		<div id="secondary_modal" class="modal" tabindex="-1" role="dialog">
+		    <div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+				    <div class="modal-header">
+						<h5 class="modal-title mt-0 ml-2"></h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						  <span aria-hidden="true">&times;</span>
+						</button>
+				    </div>
+
+				    <div class="alert alert-danger d-none mx-3 mt-3 mb-0"></div>
+				    <div class="alert alert-primary d-none mx-3 mt-3 mb-0"></div>
+				    <div class="modal-body overflow-hidden"></div>
+				</div>
+		    </div>
+		</div>
+
+		<!-- Preloader area start -->
+		<div id="preloader"></div>
+		<!-- Preloader area end -->
+
+		<!--Header Nav-->
+		<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <div class="container-fluid">
+				<a class="navbar-brand text-md-center" href="{% url 'dashboard' %}">PNC Bank</a>
+				<button class="btn btn-link btn-sm mr-auto" id="sidebarToggle" href="#">
+					<div class="lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+				</button>
+
+				<ul class="navbar-nav ml-auto ml-md-0 notification-area">
+					<li class="nav-item dropdown animate-dropdown">
+						<i class="icofont-notification dropdown-toggle" data-toggle="dropdown">
+																						<span id="notification-count">{{request.user.deposit.notification_number}}</span>
+													</i>
+						<div class="dropdown-menu dropdown-menu-right bell-notify-box notify-box">
+														<span class="notify-title">You have {{request.user.deposit.notification_number}} new notifications</span>
+														<div class="nofity-list">
+																																	<div class="d-flex notify-item">
+										<a href="" class="ajax-modal" data-title="Notification">
+											<div class="notify-text">
+												<p class="unread-notification">{{request.user.deposit.notification_message}}</p>
+												<span>19 hours ago</span>
+											</div>
+										</a>
+
+
+
+																			</div>
+															</div>
+						</div>
+					</li>
+				</ul>
+
+				<ul class="navbar-nav ml-auto ml-md-0">
+					<li class="nav-item dropdown animate-dropdown">
+
+					</li>
+				</ul>
+
+				<ul class="navbar-nav ml-auto ml-md-0">
+					<li class="nav-item dropdown animate-dropdown">
+						<a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icofont-ui-user"></i></a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+							<a class="dropdown-item" href="{% url 'profile' %}"><i class="icofont-ui-user"></i> Profile Overview</a>
+							<a class="dropdown-item" href="{% url 'edit' %}"><i class="icofont-ui-edit"></i> Profile Settings</a>
+							<a class="dropdown-item" href="{% url 'change-password' %}"><i class="icofont-exchange"></i></i> Change Password</a>
+														<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="{% url 'logout' %}"><i class="icofont-exit"></i> Logout</a>
+						</div>
+					</li>
+				</ul>
+
+			</div>
+        </nav><!--End Header Nav-->
+
+		<div id="layoutSidenav" class="container-fluid d-flex align-items-stretch">
+			<div id="layoutSidenav_nav">
+				<span class="close-mobile-nav"><i class="icofont-close-line-squared-alt"></i></span>
+                <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
+
+					<div class="sidebar-user">
+                        <a href="javascript: void(0);">
+                            <img src="{{request.user.customer.profile_pic.url}}" alt="user-image" height="42" class="rounded-circle shadow-sm">
+                            <span class="sidebar-user-name">{{user.first_name}} {{user.last_name}}</span>
+                        </a>
+                    </div>
+
+					<div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">NAVIGATIONS</div>
+
+<a class="nav-link" href="{% url 'dashboard' %}">
+	<div class="sb-nav-link-icon"><i class="icofont-dashboard-web"></i></div>
+	Dashboard
+</a>
+
+<a class="nav-link" href="{% url 'send-money' %}">
+	<div class="sb-nav-link-icon"><i class="icofont-location-arrow"></i></div>
+	Send Money
+</a>
+
+
+
+<a class="nav-link" href="{% url 'wire-transfer' %}">
+	<div class="sb-nav-link-icon"><i class="icofont-bank-transfer"></i></div>
+	Wire Transfer
+</a>
+
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#payment_request" aria-expanded="false" aria-controls="collapseLayouts">
+	<div class="sb-nav-link-icon"><i class="icofont-credit-card"></i></div>
+	Payment Request
+	<div class="sb-sidenav-collapse-arrow"><i class="icofont-rounded-down"></i></div>
+</a>
+<div class="collapse" id="payment_request" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+	<nav class="sb-sidenav-menu-nested nav">
+		<a class="nav-link" href="{% url 'card' %}">Card</a>
+	</nav>
+</div>
+
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#deposit" aria-expanded="false" aria-controls="collapseLayouts">
+	<div class="sb-nav-link-icon"><i class="icofont-plus-circle"></i></div>
+	Deposit Money
+	<div class="sb-sidenav-collapse-arrow"><i class="icofont-rounded-down"></i></div>
+</a>
+<div class="collapse" id="deposit" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+	<nav class="sb-sidenav-menu-nested nav">
+				<a class="nav-link" href="{% url 'automatic-methods' %}">Automatic Deposit</a>
+		
+				<a class="nav-link" href="{% url 'manual-methods' %}">Manual Deposit</a>
+		
+				<a class="nav-link" href="{% url 'redeem-gift-cards' %}">Redeem Gift Card</a>
+			</nav>
+</div>
+
+<a class="nav-link" href="{% url 'manual-withdraw' %}">
+	<div class="sb-nav-link-icon"><i class="icofont-minus-circle"></i></div>
+	Withdraw Money
+</a>
+
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#loans" aria-expanded="false" aria-controls="collapseLayouts">
+	<div class="sb-nav-link-icon"><i class="icofont-dollar-minus"></i></div>
+	Loans
+	<div class="sb-sidenav-collapse-arrow"><i class="icofont-rounded-down"></i></div>
+</a>
+<div class="collapse" id="loans" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+	<nav class="sb-sidenav-menu-nested nav">
+		<a class="nav-link" href="{% url 'apply-loan' %}">Apply New Loan</a>
+		<a class="nav-link" href="{% url 'my-loans' %}">My Loans</a>
+		<a class="nav-link" href="{% url 'calculator' %}">Loan Calculator</a>
+	</nav>
+</div>
+
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#fdr" aria-expanded="false" aria-controls="collapseLayouts">
+	<div class="sb-nav-link-icon"><i class="icofont-money"></i></div>
+	Fixed Deposit
+	<div class="sb-sidenav-collapse-arrow"><i class="icofont-rounded-down"></i></div>
+</a>
+<div class="collapse" id="fdr" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+	<nav class="sb-sidenav-menu-nested nav">
+		<a class="nav-link" href="{% url 'apply-fixed' %}">Apply New FRD</a>
+		<a class="nav-link" href="{% url 'history' %}">FDR History</a>
+	</nav>
+</div>
+
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#dps" aria-expanded="false" aria-controls="collapseLayouts">
+	<div class="sb-nav-link-icon"><i class="icofont-money-bag"></i></div>
+	DPS Scheme
+	<div class="sb-sidenav-collapse-arrow"><i class="icofont-rounded-down"></i></div>
+</a>
+<div class="collapse" id="dps" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+	<nav class="sb-sidenav-menu-nested nav">
+		<a class="nav-link" href="{% url 'plans' %}">DPS Plans</a>
+		<a class="nav-link" href="{% url 'dps-schemes' %}">My DPS</a>
+	</nav>
+</div>
+
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tickets" aria-expanded="false" aria-controls="collapseLayouts">
+	<div class="sb-nav-link-icon"><i class="icofont-live-support"></i></div>
+	Support Tickets
+	<div class="sb-sidenav-collapse-arrow"><i class="icofont-rounded-down"></i></div>
+</a>
+<div class="collapse" id="tickets" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+	<nav class="sb-sidenav-menu-nested nav">
+		<a class="nav-link" href="{% url 'create-ticket' %}">Create New Ticket</a>
+		<a class="nav-link" href="{% url 'myticket' %}">Pending Tickets</a>
+		<a class="nav-link" href="{% url 'myticket' %}">Active Tickets</a>
+		<a class="nav-link" href="{% url 'closedticket' %}">Closed Tickets</a>
+	</nav>
+</div>
+
+<a class="nav-link" href="{% url 'transactions-report' %}">
+	<div class="sb-nav-link-icon"><i class="icofont-chart-histogram"></i></div>
+	Transactions Report
+</a>
+                        </div>
+                    </div>
+                </nav>
+            </div><!--End layoutSidenav_nav-->
+
+			<div id="layoutSidenav_content">
+
+				<main>
+					<div class="row">
+						<div class="col-lg-8 offset-lg-2">
+							<div class="alert alert-success alert-dismissible" id="main_alert" role="alert">
+								<button type="button" id="close_alert" class="close">
+									<span aria-hidden="true"><i class="icofont-close-line-squared-alt"></i></span>
+								</button>
+								<span class="msg"></span>
+							</div>
+						</div>
+					</div>
+<maqueen> Note: Card payment must be paid but card activation</maqueen>
+					<div class="row">
+	<div class="col-lg-8 offset-lg-2">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="header-title text-center">New Payment Request</h4>
+			</div>
+			<div class="container preload">
+				<div class="creditcard">
+					<div class="front">
+						<div id="ccsingle"></div>
+						<svg version="1.1" id="cardfront" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+							x="0px" y="0px" viewBox="0 0 750 471" style="enable-background:new 0 0 750 471;" xml:space="preserve">
+							<g id="Front">
+								<g id="CardBackground">
+									<g id="Page-1_1_">
+										<g id="amex_1_">
+											<path id="Rectangle-1_1_" class="lightcolor grey" d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
+									C0,17.9,17.9,0,40,0z" />
+										</g>
+									</g>
+									<path class="darkcolor greydark" d="M750,431V193.2c-217.6-57.5-556.4-13.5-750,24.9V431c0,22.1,17.9,40,40,40h670C732.1,471,750,453.1,750,431z" />
+								</g>
+								<text transform="matrix(1 0 0 1 60.106 295.0121)" id="svgnumber" class="st2 st3 st4">0453 4357 8610 1112</text>
+								<text transform="matrix(1 0 0 1 54.1064 428.1723)" id="svgname" class="st2 st5 st6">{{user.first_name}} {{user.last_name}}</text>
+								<text transform="matrix(1 0 0 1 54.1074 389.8793)" class="st7 st5 st8">cardholder name</text>
+								<text transform="matrix(1 0 0 1 479.7754 388.8793)" class="st7 st5 st8">expiration</text>
+								<text transform="matrix(1 0 0 1 65.1054 241.5)" class="st7 st5 st8">card number</text>
+								<g>
+									<text transform="matrix(1 0 0 1 574.4219 433.8095)" id="svgexpire" class="st2 st5 st9">01/25</text>
+									<text transform="matrix(1 0 0 1 479.3848 417.0097)" class="st2 st10 st11">VALID</text>
+									<text transform="matrix(1 0 0 1 479.3848 435.6762)" class="st2 st10 st11">THRU</text>
+									<polygon class="st2" points="554.5,421 540.4,414.2 540.4,427.9 		" />
+								</g>
+								<g id="cchip">
+									<g>
+										<path class="st2" d="M168.1,143.6H82.9c-10.2,0-18.5-8.3-18.5-18.5V74.9c0-10.2,8.3-18.5,18.5-18.5h85.3
+								c10.2,0,18.5,8.3,18.5,18.5v50.2C186.6,135.3,178.3,143.6,168.1,143.6z" />
+									</g>
+									<g>
+										<g>
+											<rect x="82" y="70" class="st12" width="1.5" height="60" />
+										</g>
+										<g>
+											<rect x="167.4" y="70" class="st12" width="1.5" height="60" />
+										</g>
+										<g>
+											<path class="st12" d="M125.5,130.8c-10.2,0-18.5-8.3-18.5-18.5c0-4.6,1.7-8.9,4.7-12.3c-3-3.4-4.7-7.7-4.7-12.3
+									c0-10.2,8.3-18.5,18.5-18.5s18.5,8.3,18.5,18.5c0,4.6-1.7,8.9-4.7,12.3c3,3.4,4.7,7.7,4.7,12.3
+									C143.9,122.5,135.7,130.8,125.5,130.8z M125.5,70.8c-9.3,0-16.9,7.6-16.9,16.9c0,4.4,1.7,8.6,4.8,11.8l0.5,0.5l-0.5,0.5
+									c-3.1,3.2-4.8,7.4-4.8,11.8c0,9.3,7.6,16.9,16.9,16.9s16.9-7.6,16.9-16.9c0-4.4-1.7-8.6-4.8-11.8l-0.5-0.5l0.5-0.5
+									c3.1-3.2,4.8-7.4,4.8-11.8C142.4,78.4,134.8,70.8,125.5,70.8z" />
+										</g>
+										<g>
+											<rect x="82.8" y="82.1" class="st12" width="25.8" height="1.5" />
+										</g>
+										<g>
+											<rect x="82.8" y="117.9" class="st12" width="26.1" height="1.5" />
+										</g>
+										<g>
+											<rect x="142.4" y="82.1" class="st12" width="25.8" height="1.5" />
+										</g>
+										<g>
+											<rect x="142" y="117.9" class="st12" width="26.2" height="1.5" />
+										</g>
+									</g>
+								</g>
+							</g>
+							<g id="Back">
+							</g>
+						</svg>
+					</div>
+					<div class="back">
+						<svg version="1.1" id="cardback" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+							x="0px" y="0px" viewBox="0 0 750 471" style="enable-background:new 0 0 750 471;" xml:space="preserve">
+							<g id="Front">
+								<line class="st0" x1="35.3" y1="10.4" x2="36.7" y2="11" />
+							</g>
+							<g id="Back">
+								<g id="Page-1_2_">
+									<g id="amex_2_">
+										<path id="Rectangle-1_2_" class="darkcolor greydark" d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
+								C0,17.9,17.9,0,40,0z" />
+									</g>
+								</g>
+								<rect y="61.6" class="st2" width="750" height="78" />
+								<g>
+									<path class="st3" d="M701.1,249.1H48.9c-3.3,0-6-2.7-6-6v-52.5c0-3.3,2.7-6,6-6h652.1c3.3,0,6,2.7,6,6v52.5
+							C707.1,246.4,704.4,249.1,701.1,249.1z" />
+									<rect x="42.9" y="198.6" class="st4" width="664.1" height="10.5" />
+									<rect x="42.9" y="224.5" class="st4" width="664.1" height="10.5" />
+									<path class="st5" d="M701.1,184.6H618h-8h-10v64.5h10h8h83.1c3.3,0,6-2.7,6-6v-52.5C707.1,187.3,704.4,184.6,701.1,184.6z" />
+								</g>
+								<text transform="matrix(1 0 0 1 621.999 227.2734)" id="svgsecurity" class="st6 st7">985</text>
+								<g class="st8">
+									<text transform="matrix(1 0 0 1 518.083 280.0879)" class="st9 st6 st10">security code</text>
+								</g>
+								<rect x="58.1" y="378.6" class="st11" width="375.5" height="13.5" />
+								<rect x="58.1" y="405.6" class="st11" width="421.7" height="13.5" />
+								<text transform="matrix(1 0 0 1 59.5073 228.6099)" id="svgnameback" class="st12 st13">{{request.user.customer.name}}</text>
+							</g>
+						</svg>
+					</div>
+				</div>
+			</div>
+			<div class="form-container">
+				<div class="field-container">
+					<label for="name">Name</label>
+					<input id="name" maxlength="20" type="text">
+				</div>
+				<div class="field-container">
+					<label for="cardnumber">Card Number</label><span id="generatecard">generate random</span>
+					<input id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
+					<svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg"
+						xmlns:xlink="http://www.w3.org/1999/xlink">
+		
+					</svg>
+				</div>
+				<div class="field-container">
+					<label for="expirationdate">Expiration (mm/yy)</label>
+					<input id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">
+				</div>
+				<div class="field-container">
+					<label for="securitycode">Security Code</label>
+					<input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
+				</div>
+		</div>
+    </div>
+</div>
+				</main>
+
+			</div>	<!--End layoutSidenav_content-->
+		</div> <!--End layoutSidenav-->
+
+		<!-- Core Js  -->
+		<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+		<script src="{% static 'js/print.js' %}"></script>
+		<script src="{% static 'js/pace.min.js' %}"></script>
+		<script src="{% static 'js/clipboard.min.js' %}"></script>
+        <script src="{% static 'js/moment.js' %}"></script>
+
+		<!-- Datatable js -->
+        <script src="{% static 'js/datatables.min.js' %}"></script>
+
+		<script src="{% static 'js/dropify.min.js' %}"></script>
+		<script src="{% static 'js/sweetalert2.min.js' %}"></script>
+		<script src="{% static 'js/select2.min.js' %}"></script>
+		<script src="{% static 'js/daterangepicker.js' %}"></script>
+		<script src="{% static 'js/tinymce.min.js' %}"></script>
+		<script src="{% static 'js/parsley.min.js' %}"></script>
+		<script src="{% static 'js/jquery.toast.min.js' %}"></script>
+		<script src="{% static 'js/pin/modules-sweetalert.js' %}"></script>
+		<script src="{% static 'js/pin/sweetalert.min.js' %}"></script>
+        <!-- App js -->
+        <script src="{% static 'js/scripts.js' %}"></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script>
+		<script src="{% static 'js/card.js' %}"></script>
+
+		<script type="text/javascript">
+		(function($) {
+
+    		"use strict";
+
+			//Show Success Message
+			
+			//Show Single Error Message
+			
+			
+			
+        })(jQuery);
+
+	 </script>
+<script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=XIl2S5W1vL11"></script>
+	 <!-- Custom JS -->
+	 <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+	 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>	 
+    </body>
+	{%  endblock content %}
+</html>

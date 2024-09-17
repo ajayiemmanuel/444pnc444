@@ -1,0 +1,254 @@
+<!doctype html>
+{% load static %}
+{%  block content %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+
+    <title>PNC Bank</title>
+
+    <!-- Favicon-->
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}" />
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="{% static 'css/home/bootstrap.min.css' %}">
+    <!-- Icon Font Css -->
+    <link rel="stylesheet" href="{% static 'icofont/icofont.min.css' %}">
+    <!-- Slick Slider  CSS -->
+    <link rel="stylesheet" href="{% static 'css/home/slick/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/slick-theme.css' %}">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/home/stylef9e3.css' %}">
+
+    <!--- Custom CSS Code --->
+    <style type="text/css">
+        
+    </style>
+</head>
+
+<body id="top">
+    <header>
+        <nav class="navbar navbar-expand-lg navigation" id="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'index' %}">
+                                            <img src="{% static 'images/logo.png' %}" alt="" class="img-fluid">
+                                    </a>
+
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icofont-navigation-menu"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarmain">
+                    <ul class='navbar-nav ml-auto'><li class="nav-item"><a target="_self" href="{% url 'index' %}" class=' nav-link' > Home </a></li><li class="nav-item"><a target="_self" href="{% url 'about' %}" class=' nav-link' > About </a></li><li class="nav-item"><a target="_self" href="{% url 'services' %}" class=' nav-link' > Services </a></li><li class="nav-item"><a target="_self" href="{% url 'faq' %}" class='active nav-link' > FAQ </a></li><li class="nav-item"><a target="_self" href="{% url 'contact' %}" class=' nav-link' > Contact </a></li> </ul>
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link btn-outline-red mr-lg-2 text-nowrap" href="{% url 'login' %}"><i class="icofont-lock"></i> Sign In</a></li>
+                                                <li class="nav-item"><a class="nav-link btn-signup mr-lg-2 text-nowrap" href="{% url 'register' %}"><i class="icofont-ui-user"></i> Sign Up</a></li>
+                                                <li class="nav-item dropdown">
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageSelector">
+
+                                                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+			<span class="text-white">FAQ</span>
+            <h1 class="text-capitalize mb-5 text-lg">Frequently Asked Questions</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section service-2">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-8 offset-lg-2">
+                        <div class="faq-item">
+               <h3>
+                  <a class="faq-question collapsed" data-toggle="collapse" href="#faq-1" role="button" aria-expanded="false" aria-controls="faq-1">
+                  How to open an account?
+                  </a>
+               </h3>
+               <div class="collapse" id="faq-1">
+                  <div class="faq-content">
+                  Account opening is very easy. Just need to click Sign Up and enter some initial details for opening account. After that you need to verify your email address and that&#039;s ready to go.
+                  </div>
+               </div>
+            </div>
+            <hr>
+                        <div class="faq-item">
+               <h3>
+                  <a class="faq-question collapsed" data-toggle="collapse" href="#faq-2" role="button" aria-expanded="false" aria-controls="faq-1">
+                  How to deposit money?
+                  </a>
+               </h3>
+               <div class="collapse" id="faq-2">
+                  <div class="faq-content">
+                  You can deposit money via online payment gateway such as PayPal, Stripe, Razorpay, Paystack, Flutterwave as well as BlockChain for bitcoin. You can also deposit money by coming to our office physically.
+                  </div>
+               </div>
+            </div>
+            <hr>
+                        <div class="faq-item">
+               <h3>
+                  <a class="faq-question collapsed" data-toggle="collapse" href="#faq-3" role="button" aria-expanded="false" aria-controls="faq-1">
+                  How to withdraw money from my account?
+                  </a>
+               </h3>
+               <div class="collapse" id="faq-3">
+                  <div class="faq-content">
+                  We have different types of withdraw method. You can withdraw money to your bank account as well as your mobile banking account.
+                  </div>
+               </div>
+            </div>
+            <hr>
+                        <div class="faq-item">
+               <h3>
+                  <a class="faq-question collapsed" data-toggle="collapse" href="#faq-4" role="button" aria-expanded="false" aria-controls="faq-1">
+                  How to Apply for Loan?
+                  </a>
+               </h3>
+               <div class="collapse" id="faq-4">
+                  <div class="faq-content">
+                  You can apply loan based on your collateral.
+                  </div>
+               </div>
+            </div>
+            <hr>
+                        <div class="faq-item">
+               <h3>
+                  <a class="faq-question collapsed" data-toggle="collapse" href="#faq-5" role="button" aria-expanded="false" aria-controls="faq-1">
+                  How to Apply for Fixed Deposit?
+                  </a>
+               </h3>
+               <div class="collapse" id="faq-5">
+                  <div class="faq-content">
+                  If you have available balance in your account then you can apply for fixed deposit.
+                  </div>
+               </div>
+            </div>
+            <hr>
+                     </div>
+      </div>
+   </div>
+</section>
+
+
+    
+    <!-- footer Start -->
+    <footer class="footer section gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mr-auto col-sm-12">
+                    <div class="widget mb-5 mb-lg-0">
+                        <div class="logo mb-4">
+                                                        <img src="{% static 'images/logo.png' %}" alt="" class="img-fluid">
+                                                    </div>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#039;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+                        <ul class="list-inline footer-socials mt-4">
+                            <li class="list-inline-item"><a href="#"><i class="icofont-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="icofont-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="icofont-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="widget mb-5 mb-lg-0">
+                        <h4 class="text-capitalize mb-3">Quick Explore</h4>
+                        <div class="divider mb-4"></div>
+                        <ul class='list-unstyled footer-menu lh-35'><li class="nav-item"><a target="_self" href="{% url 'contact' %}" class=' ' > Contact </a></li><li class="nav-item"><a target="_self" href="{% url 'about' %}" class=' ' > About </a></li><li class="nav-item"><a target="_self" href="{% url 'services' %}" class=' ' > Services </a></li> </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="widget mb-5 mb-lg-0">
+                        <h4 class="text-capitalize mb-3">Pages</h4>
+                        <div class="divider mb-4"></div>
+                        <ul class='list-unstyled footer-menu lh-35'><li class="nav-item"><a target="_self" href="privacy-policy.html" class=' ' > Privacy Policy </a></li><li class="nav-item"><a target="_self" href="{% url 'terms-condition' %}" class=' ' > Terms & Condition </a></li><li class="nav-item"><a target="_self" href="{% url 'faq' %}" class='active ' > FAQ </a></li> </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-btm py-4 mt-5">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-lg-12">
+                        <div class="copyright">
+                            Copyright © 2024 <a href="#" target="_blank">Tricky Code</a>  -  All Rights Reserved.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <a class="backtop js-scroll-trigger" href="#top">
+                            <i class="icofont-long-arrow-up"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Main jQuery -->
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <!-- Bootstrap 4.3.2 -->
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Slick Slider -->
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <!-- Counterup -->
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+	
+     <!--- Custom JS Code --->
+     <script type="text/javascript">
+        (function ($) {
+        "use strict";
+
+            $(document).on('click', '#cookie-consent-box .close-btn', function(){
+                $('#cookie-consent-box').addClass('d-none');
+            });
+
+            $(document).on('click', '#cookie-accept-btn', function(){
+                $.ajax({
+                    url: "https://livo-bank.trickycode.xyz/cookie/accept",
+                    success:  function (response) {
+                        if(response.success){
+                            $('#cookie-consent-box').remove();
+                        }
+                    }
+                });
+            });
+        })(jQuery);
+
+        
+    </script>
+    <script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=XIl2S5W1vL11"></script>
+    <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+</body>
+
+{%  endblock content %}
+</html>

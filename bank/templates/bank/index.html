@@ -1,0 +1,820 @@
+<!doctype html>
+{% load static %}
+{% block content %}
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34=">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+
+	<title>PNC Bank</title>
+
+	<!-- Favicon-->
+	<link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}" />
+	<!-- bootstrap.min css -->
+	<link rel="stylesheet" href="{% static 'css/home/bootstrap.min.css' %}">
+	<!-- Icon Font Css -->
+	<link rel="stylesheet" href="{% static 'icofont/icofont.min.css' %}">
+	<!-- Slick Slider  CSS -->
+	<link rel="stylesheet" href="{% static 'css/home/slick/slick.css' %}">
+	<link rel="stylesheet" href="{% static 'css/home/slick-theme.css' %}">
+
+	<!-- Main Stylesheet -->
+	<link rel="stylesheet" href="{% static 'css/home/stylef9e3.css' %}">
+
+	<!--- Custom CSS Code --->
+	<style type="text/css">
+
+	</style>
+</head>
+
+<body id="top">
+	<header>
+		<nav class="navbar navbar-expand-lg navigation" id="navbar">
+			<div class="container">
+				<a class="navbar-brand" href="{% url 'index' %}">
+					<img src="{% static 'images/logo.png' %}" alt="" class="img-fluid">
+				</a>
+
+				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
+					aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="icofont-navigation-menu"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarmain">
+					<ul class='navbar-nav ml-auto'>
+						<li class="nav-item"><a target="_self" href="{% url 'index' %}" class='active nav-link'> Home
+							</a></li>
+						<li class="nav-item"><a target="_self" href="{% url 'about' %}" class=' nav-link'> About </a>
+						</li>
+						<li class="nav-item"><a target="_self" href="{% url 'services' %}" class=' nav-link'> Services
+							</a></li>
+						<li class="nav-item"><a target="_self" href="{% url 'faq' %}" class=' nav-link'> FAQ </a></li>
+						<li class="nav-item"><a target="_self" href="{% url 'contact' %}" class=' nav-link'> Contact
+							</a></li>
+					</ul>
+
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a class="nav-link btn-outline-red mr-lg-2 text-nowrap"
+								href="{% url 'login' %}"><i class="icofont-lock"></i> Sign In</a></li>
+						<li class="nav-item"><a class="nav-link btn-signup mr-lg-2 text-nowrap"
+								href="{% url 'register' %}"><i class="icofont-ui-user"></i> Sign Up</a></li>
+						<li class="nav-item dropdown">
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageSelector">
+
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<!-- Slider Start -->
+	<section class="banner d-flex align-items-center" style="background: url(images/slider-bg-1.jpg)">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="block">
+						<h1 class="mb-3">Smart way to keep your money safe and secure</h1>
+
+						<p class="mb-4 pr-5 text-white">Transfer money within minutes and save money for your future.
+							All of your desired service in single platform.</p>
+						<div class="btn-container">
+							<a href="{% url 'register' %}" class="btn btn-main-2">Get Started <i
+									class="icofont-simple-right ml-2"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section about">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-6">
+					<div class="about-img">
+						<img src="{% static 'images/about-us.jpg' %}" alt="" class="img-fluid">
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="about-content pl-4 mt-4 mt-lg-0">
+						<h2 class="title-color">About Us</h2>
+						<p class="mt-4 mb-5">We understand that with global ambition, comes global challenges, and we are here to bridge the gap by offering seamless cross-border financial services. Consider us your friendly digital guide to all things finance, helping you make the most of your money.</p>
+
+						<a href="{% url 'services' %}" class="btn btn-main-2 btn-icon">Services<i
+								class="icofont-simple-right ml-3"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="cta-section">
+		<div class="container">
+			<div class="cta position-relative">
+				<div class="row">
+					<div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="counter-stat">
+							<i class="icofont-doctor"></i>
+							<span class="h3">500</span>+
+							<p>Customers</p>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="counter-stat">
+							<i class="icofont-flag"></i>
+							<span class="h3">5</span>
+							<p>Branches</p>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="counter-stat">
+							<i class="icofont-credit-card"></i>
+							<span class="h3">1</span>M
+							<p>Total Transactions</p>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="counter-stat">
+							<i class="icofont-globe"></i>
+							<span class="h3">200</span>+
+							<p>Supported Country</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section service gray-bg">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-7 text-center">
+					<div class="section-title">
+						<h2>Our Services</h2>
+						<div class="divider mx-auto my-4"></div>
+						<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt
+							molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="service-item mb-4">
+						<div class="icon d-flex align-items-center">
+							<i class="icofont-paper-plane"></i>
+							<h4 class="mt-3 mb-3">Money Transfer</h4>
+						</div>
+
+						<div class="content">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="service-item mb-4">
+						<div class="icon d-flex align-items-center">
+							<i class="icofont-money"></i>
+							<h4 class="mt-3 mb-3">Multi Currency</h4>
+						</div>
+
+						<div class="content">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="service-item mb-4">
+						<div class="icon d-flex align-items-center">
+							<i class="icofont-exchange"></i>
+							<h4 class="mt-3 mb-3">Exchange Currency</h4>
+						</div>
+
+						<div class="content">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="service-item mb-4">
+						<div class="icon d-flex align-items-center">
+							<i class="icofont-bank-alt"></i>
+							<h4 class="mt-3 mb-3">Fixed Deposit</h4>
+						</div>
+
+						<div class="content">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="service-item mb-4">
+						<div class="icon d-flex align-items-center">
+							<i class="icofont-file-text"></i>
+							<h4 class="mt-3 mb-3">Apply Loan</h4>
+						</div>
+
+						<div class="content">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="service-item mb-4">
+						<div class="icon d-flex align-items-center">
+							<i class="icofont-pay"></i>
+							<h4 class="mt-3 mb-3">Payment Request</h4>
+						</div>
+
+						<div class="content">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-7 text-center">
+					<div class="section-title">
+						<h2>Fixed Deposit Plans</h2>
+						<div class="divider mx-auto my-4"></div>
+						<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt
+							molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="pricing-table mb-4">
+						<div class="pricing-table-head">
+							<h4 class="my-3">Basic</h4>
+							<h3 class="my-3">8.00%</h3>
+						</div>
+						<div class="pricing-table-content">
+							<table class="table">
+								<tr>
+									<td>Duration</td>
+									<td>12 Month</td>
+								</tr>
+								<tr>
+									<td>Interest Rate</td>
+									<td>8.00 %</td>
+								</tr>
+								<tr>
+									<td>Minimum</td>
+									<td>$10.00</td>
+								</tr>
+								<tr>
+									<td>Maximum</td>
+									<td>$500.00</td>
+								</tr>
+							</table>
+						</div>
+						<div class="text-center mt-4">
+							<a href="{% url 'login' %}" class="btn">Apply Now</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="pricing-table mb-4">
+						<div class="pricing-table-head">
+							<h4 class="my-3">Standard</h4>
+							<h3 class="my-3">10.00%</h3>
+						</div>
+						<div class="pricing-table-content">
+							<table class="table">
+								<tr>
+									<td>Duration</td>
+									<td>24 Month</td>
+								</tr>
+								<tr>
+									<td>Interest Rate</td>
+									<td>10.00 %</td>
+								</tr>
+								<tr>
+									<td>Minimum</td>
+									<td>$100.00</td>
+								</tr>
+								<tr>
+									<td>Maximum</td>
+									<td>$1,000.00</td>
+								</tr>
+							</table>
+						</div>
+						<div class="text-center mt-4">
+							<a href="{% url 'login' %}" class="btn">Apply Now</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="pricing-table mb-4">
+						<div class="pricing-table-head">
+							<h4 class="my-3">Professional</h4>
+							<h3 class="my-3">15.00%</h3>
+						</div>
+						<div class="pricing-table-content">
+							<table class="table">
+								<tr>
+									<td>Duration</td>
+									<td>36 Month</td>
+								</tr>
+								<tr>
+									<td>Interest Rate</td>
+									<td>15.00 %</td>
+								</tr>
+								<tr>
+									<td>Minimum</td>
+									<td>$500.00</td>
+								</tr>
+								<tr>
+									<td>Maximum</td>
+									<td>$20,000.00</td>
+								</tr>
+							</table>
+						</div>
+						<div class="text-center mt-4">
+							<a href="{% url 'login' %}" class="btn">Apply Now</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section dps gray-bg">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-7 text-center">
+					<div class="section-title">
+						<h2>Deposit Pension Scheme</h2>
+						<div class="divider mx-auto my-4"></div>
+						<p>You will get maximum rewards with us by making Deposit Pension Scheme</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="pricing-table mb-4">
+						<div class="pricing-table-head">
+							<h4 class="my-3">Strater</h4>
+							<h3 class="my-3">5.00%</h3>
+						</div>
+						<div class="pricing-table-content">
+							<table class="table">
+								<tr>
+									<td>Currency</td>
+									<td>USD</td>
+								</tr>
+								<tr>
+									<td>Per Instalment</td>
+									<td>$50.00</td>
+								</tr>
+								<tr>
+									<td>Installment Interva</td>
+									<td>Every 1 Month</td>
+								</tr>
+								<tr>
+									<td>Interest Rate</td>
+									<td>5.00</td>
+								</tr>
+								<tr>
+									<td>Total Installment</td>
+									<td>36</td>
+								</tr>
+								<tr>
+									<td>Total Deposit</td>
+									<td>$1,800.00</td>
+								</tr>
+								<tr>
+									<td>Matured Amount</td>
+									<td>$1,890.00</td>
+								</tr>
+							</table>
+						</div>
+						<div class="text-center mt-4">
+							<a href="{% url 'login' %}" class="btn">Apply Now</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="pricing-table mb-4">
+						<div class="pricing-table-head">
+							<h4 class="my-3">Basic</h4>
+							<h3 class="my-3">10.00%</h3>
+						</div>
+						<div class="pricing-table-content">
+							<table class="table">
+								<tr>
+									<td>Currency</td>
+									<td>USD</td>
+								</tr>
+								<tr>
+									<td>Per Instalment</td>
+									<td>$100.00</td>
+								</tr>
+								<tr>
+									<td>Installment Interva</td>
+									<td>Every 30 Days</td>
+								</tr>
+								<tr>
+									<td>Interest Rate</td>
+									<td>10.00</td>
+								</tr>
+								<tr>
+									<td>Total Installment</td>
+									<td>100</td>
+								</tr>
+								<tr>
+									<td>Total Deposit</td>
+									<td>$10,000.00</td>
+								</tr>
+								<tr>
+									<td>Matured Amount</td>
+									<td>$11,000.00</td>
+								</tr>
+							</table>
+						</div>
+						<div class="text-center mt-4">
+							<a href="{% url 'login' %}" class="btn">Apply Now</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="pricing-table mb-4">
+						<div class="pricing-table-head">
+							<h4 class="my-3">Professional</h4>
+							<h3 class="my-3">15.00%</h3>
+						</div>
+						<div class="pricing-table-content">
+							<table class="table">
+								<tr>
+									<td>Currency</td>
+									<td>USD</td>
+								</tr>
+								<tr>
+									<td>Per Instalment</td>
+									<td>$200.00</td>
+								</tr>
+								<tr>
+									<td>Installment Interva</td>
+									<td>Every 30 Days</td>
+								</tr>
+								<tr>
+									<td>Interest Rate</td>
+									<td>15.00</td>
+								</tr>
+								<tr>
+									<td>Total Installment</td>
+									<td>120</td>
+								</tr>
+								<tr>
+									<td>Total Deposit</td>
+									<td>$24,000.00</td>
+								</tr>
+								<tr>
+									<td>Matured Amount</td>
+									<td>$27,600.00</td>
+								</tr>
+							</table>
+						</div>
+						<div class="text-center mt-4">
+							<a href="{% url 'login' %}" class="btn">Apply Now</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="section loan">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-7 text-center">
+					<div class="section-title">
+						<h2>Loan Packages</h2>
+						<div class="divider mx-auto my-4"></div>
+						<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt
+							molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="pricing-table mb-4">
+						<div class="pricing-table-head">
+							<h4 class="my-3">Student Loan</h4>
+							<h3 class="my-3">5.00 %</h3>
+						</div>
+						<div class="pricing-table-content">
+							<table class="table">
+								<tr>
+									<td>Term</td>
+									<td>
+										24
+										Month
+									</td>
+								</tr>
+
+								<tr>
+									<td>Interest Rate</td>
+									<td>5.00 %</td>
+								</tr>
+
+								<tr>
+									<td>Interest Type</td>
+									<td>Flat Rate</td>
+								</tr>
+
+								<tr>
+									<td>Minimum</td>
+									<td>$100.00</td>
+								</tr>
+
+								<tr>
+									<td>Maximum</td>
+									<td>$1,000.00</td>
+								</tr>
+							</table>
+						</div>
+						<div class="text-center mt-4">
+							<a href="{% url 'login' %}" class="btn">Apply Now</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="pricing-table mb-4">
+						<div class="pricing-table-head">
+							<h4 class="my-3">Business Loan</h4>
+							<h3 class="my-3">12.00 %</h3>
+						</div>
+						<div class="pricing-table-content">
+							<table class="table">
+								<tr>
+									<td>Term</td>
+									<td>
+										12
+										Month
+									</td>
+								</tr>
+
+								<tr>
+									<td>Interest Rate</td>
+									<td>12.00 %</td>
+								</tr>
+
+								<tr>
+									<td>Interest Type</td>
+									<td>Mortgage</td>
+								</tr>
+
+								<tr>
+									<td>Minimum</td>
+									<td>$1,000.00</td>
+								</tr>
+
+								<tr>
+									<td>Maximum</td>
+									<td>$100,000.00</td>
+								</tr>
+							</table>
+						</div>
+						<div class="text-center mt-4">
+							<a href="{% url 'login' %}" class="btn">Apply Now</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="pricing-table mb-4">
+						<div class="pricing-table-head">
+							<h4 class="my-3">Enterprise Loan</h4>
+							<h3 class="my-3">12.00 %</h3>
+						</div>
+						<div class="pricing-table-content">
+							<table class="table">
+								<tr>
+									<td>Term</td>
+									<td>
+										36
+										Month
+									</td>
+								</tr>
+
+								<tr>
+									<td>Interest Rate</td>
+									<td>12.00 %</td>
+								</tr>
+
+								<tr>
+									<td>Interest Type</td>
+									<td>Mortgage</td>
+								</tr>
+
+								<tr>
+									<td>Minimum</td>
+									<td>$5,000.00</td>
+								</tr>
+
+								<tr>
+									<td>Maximum</td>
+									<td>$50,000.00</td>
+								</tr>
+							</table>
+						</div>
+						<div class="text-center mt-4">
+							<a href="{% url 'login' %}" class="btn">Apply Now</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<section class="section testimonial-2">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-7">
+					<div class="section-title text-center">
+						<h2>We served over 500+ Customers</h2>
+						<div class="divider mx-auto my-4"></div>
+						<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt
+							molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-12 testimonial-wrap-2">
+					<div class="testimonial-block style-2 gray-bg">
+						<i class="icofont-quote-right"></i>
+
+						<div class="testimonial-thumb">
+							<img src="{% static 'images/client-placeholder.png' %}" alt="Jackson J. Taylor"
+								class="img-fluid">
+						</div>
+
+						<div class="client-info">
+							<h4>Jackson J. Taylor</h4>
+							<p>There are many variations of passages of Lorem Ipsum available, but the majority have
+								suffered alteration in some form, by injected humour, or randomised words which
+								don&#039;t look even slightly believable.</p>
+						</div>
+					</div>
+					<div class="testimonial-block style-2 gray-bg">
+						<i class="icofont-quote-right"></i>
+
+						<div class="testimonial-thumb">
+							<img src="{% static 'images/client-placeholder.png' %}" alt="Philip D. Waller"
+								class="img-fluid">
+						</div>
+
+						<div class="client-info">
+							<h4>Philip D. Waller</h4>
+							<p>There are many variations of passages of Lorem Ipsum available, but the majority have
+								suffered alteration in some form, by injected humour, or randomised words which
+								don&#039;t look even slightly believable.</p>
+						</div>
+					</div>
+					<div class="testimonial-block style-2 gray-bg">
+						<i class="icofont-quote-right"></i>
+
+						<div class="testimonial-thumb">
+							<img src="{% static 'images/client-placeholder.png' %}" alt="Jack A. Stanley"
+								class="img-fluid">
+						</div>
+
+						<div class="client-info">
+							<h4>Jack A. Stanley</h4>
+							<p>There are many variations of passages of Lorem Ipsum available, but the majority have
+								suffered alteration in some form, by injected humour, or randomised words which
+								don&#039;t look even slightly believable.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- footer Start -->
+	<footer class="footer section gray-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mr-auto col-sm-12">
+					<div class="widget mb-5 mb-lg-0">
+						<div class="logo mb-4">
+							<img src="{% static 'images/logo.png' %}" alt="" class="img-fluid">
+						</div>
+
+						<ul class="list-inline footer-socials mt-4">
+							<li class="list-inline-item"><a href="#"><i class="icofont-facebook"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="icofont-twitter"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="icofont-linkedin"></i></a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="widget mb-5 mb-lg-0">
+						<h4 class="text-capitalize mb-3">Quick Explore</h4>
+						<div class="divider mb-4"></div>
+						<ul class='list-unstyled footer-menu lh-35'>
+							<li class="nav-item"><a target="_self" href="{% url 'contact' %}" class=' '> Contact </a>
+							</li>
+							<li class="nav-item"><a target="_self" href="{% url 'about' %}" class=' '> About </a></li>
+							<li class="nav-item"><a target="_self" href="{% url 'services' %}" class=' '> Services </a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="widget mb-5 mb-lg-0">
+						<h4 class="text-capitalize mb-3">Pages</h4>
+						<div class="divider mb-4"></div>
+						<ul class='list-unstyled footer-menu lh-35'>
+							<li class="nav-item"><a target="_self" href="{% url 'privacy-policy' %}" class=' '> Privacy
+									Policy </a></li>
+							<li class="nav-item"><a target="_self" href="{% url 'terms-condition' %}" class=' '> Terms &
+									Condition </a></li>
+							<li class="nav-item"><a target="_self" href="{% url 'faq' %}" class=' '> FAQ </a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer-btm py-4 mt-5">
+				<div class="row align-items-center justify-content-between">
+					<div class="col-lg-12">
+						<div class="copyright">
+							Copyright © 2024 <a href="#" target="_blank">PNC Bank</a> - All Rights Reserved.
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-4">
+						<a class="backtop js-scroll-trigger" href="#top">
+							<i class="icofont-long-arrow-up"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- Main jQuery -->
+	<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+	<!-- Bootstrap 4.3.2 -->
+	<script src="{% static 'js/popper.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<!-- Slick Slider -->
+	<script src="{% static 'js/slick/slick.min.js' %}"></script>
+	<!-- Counterup -->
+	<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+	<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+
+	<script src="{% static 'js/script.js' %}"></script>
+	<script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=XIl2S5W1vL11"></script>
+
+	<!--- Custom JS Code --->
+	<script type="text/javascript">
+		(function ($) {
+			"use strict";
+
+			$(document).on('click', '#cookie-consent-box .close-btn', function () {
+				$('#cookie-consent-box').addClass('d-none');
+			});
+
+			$(document).on('click', '#cookie-accept-btn', function () {
+				$.ajax({
+					url: "{% url 'index' %}",
+					success: function (response) {
+						if (response.success) {
+							$('#cookie-consent-box').remove();
+						}
+					}
+				});
+			});
+		})(jQuery);
+
+
+	</script>
+	<script>window.gtranslateSettings = { "default_language": "en", "detect_browser_language": true, "wrapper_selector": ".gtranslate_wrapper" }</script>
+	<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+</body>
+
+{% endblock content %}
+
+</html>

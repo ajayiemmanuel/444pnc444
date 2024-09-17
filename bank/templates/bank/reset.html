@@ -1,0 +1,106 @@
+<!doctype html>
+{% load static %}
+{%  block content %}
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PNC Bank</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- CSRF Token -->
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}"/>
+
+    <!-- Google font -->
+	<link rel="preconnect" href="https://fonts.gstatic.com/">
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{% static 'css/home/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/home/app7839.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="area" >
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <div id="app">
+        <main class="py-4">
+            <div class="auth-container d-md-flex align-items-center">
+    <div class="container">
+        <div class="row">
+         <div class="col-md-12 col-lg-10 offset-lg-1">
+                <div class="bg-white p-2">
+                    <div class="row no-gutters">
+                        <div class="col-md-6">
+                            <div class="card card-signin">
+
+                                <div class="card-body">
+                                    
+                                <img class="logo" src="{% static 'images/logo.png' %}">
+                                    
+                                    <h6 class="py-4">Reset Your Password</h6> 
+
+                                    
+                                    <form method="POST" class="form-signin" action="#" autocomplete="off">
+                                        <input type="hidden" name="_token" value="v3lUnprMipj3j9dfjMDYsxb8OZ5hr5rPKsqSGAmn">
+                                        <div class="form-group row">
+                                            <div class="col-md-12">
+                                                <input id="email" type="email" class="form-control" name="email" placeholder="Enter Your Email" value="" required>
+
+                                                                                            </div>
+                                        </div>
+
+                                        <div class="form-group row mb-0">
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn btn-login btn-block">
+                                                    Submit
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-none d-md-block">
+                            <div id="auth-bg" class="d-flex align-items-center justify-content-center">
+                                <div class="px-5">
+                                    <p class="mb-1 font-weight-light">WELCOME TO</p>
+                                    <h2 class="font-weight-bold">PNC Bank</h2>
+
+                                    <div class="divider"></div>
+
+                                    <p>Enter your registered email for getting password reset link</p> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </main>
+    </div>
+    <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+	</body>
+    {%  endblock content %}
+</html>
